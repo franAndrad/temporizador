@@ -49,7 +49,7 @@ const Timer = () => {
 
     return (
       <div className="timer-container">
-        <h1 className="timer-heading">VUELTA A CASA</h1>
+        <h1 className="timer-heading">VUELTA A MOLESTAR</h1>
         <div className="timer card border-neon">
           <p className="timer-item">{timeLeft.months}m</p>
           <span className="timer-separator">:</span>
