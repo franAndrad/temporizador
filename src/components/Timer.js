@@ -53,7 +53,7 @@ const Timer = () => {
         <div className="timer card border-neon">
           <p className="timer-item">{timeLeft.months}m</p>
           <span className="timer-separator">:</span>
-          <p className="timer-item">{timeLeft.days}</p>
+          <p className="timer-item">{timeLeft.days}d</p>
           <span className="timer-separator">:</span>
           <p className="timer-item">{timeLeft.hours}hs</p>
           <span className="timer-separator">:</span>
