@@ -18,18 +18,16 @@ const Timer = () => {
       };
     }
 
-    const total = targetDate - new Date("2024-03-20T00:00:00Z");
-    const elapsed = total - difference;
-
-    const months = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 30));
+    const total = difference;
+    const months = Math.floor(total / (1000 * 60 * 60 * 24 * 30));
     const days = Math.floor(
-      (elapsed % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)
+      (total % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)
     );
     const hours = Math.floor(
-      (elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+    const minutes = Math.floor((total % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((total % (1000 * 60)) / 1000);
 
     return {
       months,
@@ -37,7 +35,7 @@ const Timer = () => {
       hours,
       minutes,
       seconds,
-      total,
+      total: difference,
     };
   };
 
@@ -51,31 +49,25 @@ const Timer = () => {
     return () => clearTimeout(timer);
   });
 
-const calculateProgress = () => {
-  const startDate = new Date("2024-03-24T00:00:00Z");
-  const endDate = new Date("2024-07-24T00:00:00Z");
-  const now = new Date();
+  const calculateProgress = () => {
+    const startDate = new Date("2024-03-24T00:00:00Z");
+    const endDate = new Date("2024-07-24T00:00:00Z");
+    const now = new Date();
 
-  // Verificar si ya pasó la fecha de inicio
-  if (now < startDate) {
-    return "0%";
-  }
+    if (now < startDate) {
+      return "0%";
+    }
 
-  // Calcular el tiempo transcurrido desde la fecha de inicio
-  const elapsedDuration = now - startDate;
-  const totalDuration = endDate - startDate;
+    const elapsedDuration = now - startDate;
+    const totalDuration = endDate - startDate;
 
-  // Calcular el progreso en base al tiempo transcurrido
-  let progress = (elapsedDuration / totalDuration) * 100;
-  if (progress > 100) {
-    progress = 100;
-  }
+    let progress = (elapsedDuration / totalDuration) * 100;
+    if (progress > 100) {
+      progress = 100;
+    }
 
-  return progress.toFixed(2) + "%";
-};
-
-
-
+    return progress.toFixed(2) + "%";
+  };
 
   return (
     <div className="timer-container">
