@@ -4,7 +4,7 @@ import './Timer.css';
 const Timer = () => {
   const calculateTimeLeft = () => {
     // Establece la fecha de finalización del temporizador
-    const targetDate = new Date("2023-11-26T00:00:00Z"); // Puedes cambiar esta fecha a tu preferencia
+    const targetDate = new Date("2024-07-24T00:00:00Z"); // Puedes cambiar esta fecha a tu preferencia
     const now = new Date().getTime();
     const difference = targetDate - now;
 
